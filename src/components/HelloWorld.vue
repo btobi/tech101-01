@@ -1,6 +1,9 @@
 <template>
-  <div class="hello">
+  <div class="hello" v-bind:style="{ backgroundColor: backgroundColor }">
     <h1>{{ msg }}</h1>
+    <button @click="clickButton">
+      Click me
+    </button>
   </div>
 </template>
 
@@ -9,6 +12,20 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  data() {
+    return {
+      backgroundColor: "green",
+      colors: ["green", "red", "yellow", "blue"],
+      currentColor: 0
+    };
+  },
+  methods: {
+    clickButton() {
+      this.backgroundColor = this.colors[
+        this.currentColor++ % this.colors.length
+      ];
+    }
   }
 };
 </script>
@@ -17,6 +34,7 @@ export default {
 <style scoped lang="scss">
 .hello {
   background: lightgreen;
+  padding: 50px;
 }
 h3 {
   margin: 40px 0 0;
