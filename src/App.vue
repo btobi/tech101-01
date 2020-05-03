@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Hello from Tobi" />
+    <HelloWorld v-bind:msg="msg" @changeMessage="msg = $event" />
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   name: "App",
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      msg: "Hello from Tobi"
+    };
   }
 };
 </script>

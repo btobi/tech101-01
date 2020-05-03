@@ -22,6 +22,7 @@ export default {
   },
   methods: {
     clickButton() {
+      this.$emit('changeMessage', 'Hello from Child Component');
       this.backgroundColor = this.colors[
         this.currentColor++ % this.colors.length
       ];
